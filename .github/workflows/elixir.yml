@@ -49,6 +49,8 @@ jobs:
           restore-keys: ${{ runner.os }}-mix-
       - name: Install dependencies
         run: mix deps.get
+      - name: Check vulnerabilities
+        run: mix deps.audit
       - name: Check Formatting
         run: mix format --check-formatted
       - name: Run Credo
